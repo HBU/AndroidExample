@@ -7,10 +7,9 @@ Ref：http://blog.csdn.net/guolin_blog/article/details/43536355
 
 如果想要使用XML来编写动画，首先要在res目录下面新建一个animator文件夹，所有属性动画的XML文件都应该存放在这个文件夹当中。然后在XML文件中我们一共可以使用如下三种标签：
 
-`
-<animator>  对应代码中的ValueAnimator
+`<animator>  对应代码中的ValueAnimator
 
-<objectAnimator>  对应代码中的ObjectAnimator
+`<objectAnimator>  对应代码中的ObjectAnimator
 
-<set>  对应代码中的AnimatorSet
-`
+`<set>  对应代码中的AnimatorSet
+
