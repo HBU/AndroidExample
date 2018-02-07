@@ -31,27 +31,16 @@
             android:text="缩放" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linear_layout"
-        android:text="组合动画" />
+
 
     <Button
         android:id="@+id/set_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_layout"
-        android:layout_toRightOf="@id/set"
+
         android:text="组合动画xml" />
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linear_layout"
-        android:layout_toRightOf="@id/set_xml"
-        android:text="Close" />
+
 
     <ImageView
         android:id="@+id/iamgeview"
