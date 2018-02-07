@@ -18,16 +18,7 @@ import java.io.InputStream;
 
 /** * 属性动画测试类 */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = "MainActivity";
-    private Thread mThread;
-    private ImageView imageView; /**     * 图片view     */
-    public static final String ANIMA_ALPHA = "alpha";/**     * 透明动画     */
-    public static final String ANIMA_ROTATION = "rotation";/**     * 旋转动画     */
-    public static final String ANIMA_TRANSLATION_X = "translationX";/**     * 沿X轴移动动画     */
-    public static final String ANIMA_TRANSLATION_Y = "translationY"; /**     * 沿Y轴移动动画     */
-    public static final String ANIMA_SCALE_X = "scaleX";/**     * 沿X轴缩放动画     */
-    public static final String ANIMA_SCALE_Y = "scaleY";/**     * 沿Y轴缩放动画     */
-
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageView = (ImageView) findViewById(R.id.iamgeview);
         setListener(
                 R.id.alpha,
-                R.id.rotation,
-                R.id.translation,
-                R.id.scale,
-                R.id.set,
-                R.id.set_xml);
+                R.id.rotationX, R.id.rotationY, R.id.rotationZ,
+                R.id.scaleX,    R.id.scaleY,
+                R.id.translationX,  R.id.translationY,
+                R.id.set
+        );
     }
     /*** 设置点击事件     * @param i 视图id     */
     private void setListener(@IdRes int... i) {
@@ -58,72 +49,84 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alpha:                //透明度动画
-                objectAnimationTest1();
+                objectAnimationAlpha();
                 break;
-            case R.id.rotation:                //旋转动画
-                objectAnimationTest2();
+            case R.id.rotationZ:                //旋转动画
+                objectAnimationRotationZ();
                 break;
-            case R.id.translation:                //移动动画
-                objectAnimationTest3();
+            case R.id.rotationX:                //旋转动画
+                objectAnimationRotationX();
                 break;
-            case R.id.scale:                //缩放动画
-                objectAnimationTest4();
+            case R.id.rotationY:                //旋转动画
+                objectAnimationRotationY();
+                break;
+            case R.id.translationX:                //移动动画
+                objectAnimationTranslationX();
+                break;
+            case R.id.translationY:                //移动动画
+                objectAnimationTranslationY();
+                break;
+            case R.id.scaleX:                //缩放动画
+                objectAnimationScaleX();
+                break;
+            case R.id.scaleY:                //缩放动画
+                objectAnimationScaleY();
                 break;
             case R.id.set:                //组合动画
-                objectAnimationTest5();
+                objectAnimationSet();
                 break;
-            case R.id.set_xml:                //组合动画
-                objectAnimationTest6();
-                break;
+
         }
     }
 
     /*** 透明度     */
-    private void objectAnimationTest1() {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_ALPHA, 1f, 0f, 1f, 0f);
-        animator.setDuration(2000);
+    private void objectAnimationAlpha() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "alpha", 1f, 0f, 1f);
+        animator.setDuration(3000);
         animator.start();
-        animator.setRepeatCount(-1);
-        //从xml加载动画
-//        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.alpha);
-//        animator.setTarget(imageView);
-//        animator.start();
+        //animator.setRepeatCount(-1);
     }
 
     /*** 旋转     */
-    private void objectAnimationTest2() {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_ROTATION, 0f, 360f, 0f);
-        animator.setDuration(2000);
+    private void objectAnimationRotationZ() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f, 0f);
+        animator.setDuration(3000);
         animator.start();
-        //从xml加载动画
-//        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.rotation);
-//        animator.setTarget(imageView);
-//        animator.start();
+    }
+    private void objectAnimationRotationX() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotationX", 0f, 360f, 0f);
+        animator.setDuration(3000);
+        animator.start();
+    }
+    private void objectAnimationRotationY() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotationY", 0f, 360f, 0f);
+        animator.setDuration(3000);
+        animator.start();
     }
 
+
     /*** 移动     */
-    private void objectAnimationTest3() {
-        float x = imageView.getTranslationX();//得到的x为0.0f
-        //ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_TRANSLATION_Y, x, 300f, x);
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_TRANSLATION_X, 0f, -300f, 0f);
-        animator.setDuration(2000);
+    private void objectAnimationTranslationX() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "translationX", 0f, 300f,-300f, 0f);
+        animator.setDuration(3000);
         animator.start();
-        //从xml文件加载
-//        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.translation_x);
-//        animator.setTarget(imageView);
-//        animator.start();
+    }
+    private void objectAnimationTranslationY() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "translationY", 0f, 300f,-300f, 0f);
+        animator.setDuration(3000);
+        animator.start();
     }
 
     /*** 缩放     */
-    private void objectAnimationTest4() {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_SCALE_X, 1f, 2f, 1f);
-        //ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_SCALE_Y, 1f, 2f, 1f);
-        animator.setDuration(2000);
+    private void objectAnimationScaleX() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 2f, 1f);
+        animator.setDuration(3000);
         animator.start();
-        //从xml加载
-//        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.scale_x);
-//        animator.setTarget(imageView);
-//        animator.start();
+    }
+    private void objectAnimationScaleY() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 2f, 1f);
+        animator.setDuration(3000);
+        animator.start();
     }
 
     /*** 组合动画
@@ -133,12 +136,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * before(Animator anim) 将现有动画插入到传入的动画之前执行
      * with(Animator anim) 将现有动画和传入的动画同时执行
      */
-    private void objectAnimationTest5() {
-        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(imageView, ANIMA_SCALE_X, 1f, 2f, 1f);//沿x轴放大
-        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(imageView, ANIMA_SCALE_Y, 1f, 2f, 1f);//沿y轴放大
-        ObjectAnimator translationXAnimator = ObjectAnimator.ofFloat(imageView, ANIMA_TRANSLATION_X, 0f, 200f, 0f);//移动
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, ANIMA_ALPHA, 1f, 0f, 1f);//透明动画
-
+    private void objectAnimationSet() {
+        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 2f, 1f);//沿x轴放大
+        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 2f, 1f);//沿y轴放大
+        ObjectAnimator translationXAnimator = ObjectAnimator.ofFloat(imageView, "translationX", 0f, 200f, -200f,0f);//移动
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "alpha", 1f, 0f, 1f);//透明动画
         AnimatorSet set = new AnimatorSet();
         //同时沿X,Y轴放大，且改变透明度，然后移动        //注意：after和before不能同时使用，只能选其一
         set.play(scaleXAnimator).with(scaleYAnimator).with(animator).before(translationXAnimator);
@@ -172,18 +174,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         set.start();
-    }
-
-    /*** 组合动画xml     */
-    private void objectAnimationTest6() {
-        //从xml加载
-        //向左移动并旋转，然后回到原来的位置
-        //接着向右移动并旋转，然后回到原来的位置
-        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.set);
-        animator.setTarget(imageView);
-        //匀速进行
-        animator.setInterpolator(new LinearInterpolator());
-        animator.setStartDelay(1000);
-        animator.start();
     }
 }

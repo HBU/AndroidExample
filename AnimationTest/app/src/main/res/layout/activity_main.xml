@@ -10,50 +10,70 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
+        <Button
+            android:id="@+id/scaleX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩放X" />
+        <Button
+            android:id="@+id/scaleY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩放Y" />
+        <Button
+            android:id="@+id/translationX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="移动X" />
+        <Button
+            android:id="@+id/translationY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="移动Y" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/liner_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_layout">
+        <Button
+            android:id="@+id/rotationX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转X" />
+        <Button
+            android:id="@+id/rotationY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转Y" />
+        <Button
+            android:id="@+id/rotationZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转Z" />
         <Button
             android:id="@+id/alpha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="透明度" />
-
-        <Button
-            android:id="@+id/rotation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="旋转" />
-
-        <Button
-            android:id="@+id/translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="移动" />
-
-        <Button
-            android:id="@+id/scale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="缩放" />
     </LinearLayout>
 
     <Button
         android:id="@+id/set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_layout"
+        android:layout_below="@id/liner_layout2"
         android:text="组合动画" />
 
-    <Button
-        android:id="@+id/set_xml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linear_layout"
-        android:layout_toRightOf="@id/set"
-        android:text="组合动画xml" />
+
+
 
     <ImageView
         android:id="@+id/iamgeview"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/cat_normal" />
+        android:src="@drawable/cshbu" />
 </RelativeLayout>
