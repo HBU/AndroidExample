@@ -3,4 +3,5 @@
 Name | function | Contributer
 :--- | :--- | :---
 SQLiteLoad | 载入本地SQLite数据库，并用spinner显示 | [zz51233273](https://github.com/zz51233273)
-Animation | 属性动画 | [Gavin-ZYX](https://github.com/Gavin-ZYX/Animation)
+AnimationTest | 属性动画 | [Gavin-ZYX](https://github.com/Gavin-ZYX/Animation)
+[speechRecognizerDemo](https://github.com/zz51233273/android-project/tree/master/app/speechRecognizerDemo) | 语音识别功能 | [zz51233273](https://github.com/zz51233273)
