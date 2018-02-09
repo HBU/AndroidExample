@@ -7,3 +7,4 @@ AnimationTest，AnimationXmlTest | 属性动画 | [Gavin-ZYX](https://github.com
 [speechRecognizerDemo](https://github.com/zz51233273/android-project/tree/master/app/speechRecognizerDemo) | 语音识别功能 | [zz51233273](https://github.com/zz51233273)
 FirstActivity，GtyTest | 测试新建空Activity |
 NdkTest | 简单测试NDK使用 |
+MinesweeperDemo | 简单扫雷游戏 | [luoyesiqiu](https://github.com/luoyesiqiu/Mine)
