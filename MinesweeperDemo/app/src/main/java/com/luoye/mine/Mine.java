@@ -14,11 +14,12 @@ import java.util.Random;
 import java.util.Set;
 /**
  * Created by zyw on 2016/7/29.
+ * Edited by David on 2018/2/9.
  */
 public class Mine {
     public   int x;//地图的在屏幕上的坐标点
     public   int y;//地图的在屏幕上的坐标点
-    public    int mapCol;//矩阵宽
+    public   int mapCol;//矩阵宽
     public   int mapRow;//矩阵高
     private  int mineNum ;
     public static short EMPTY=0;//空
@@ -103,7 +104,7 @@ public class Mine {
 
         tilePaint =new Paint();
         tilePaint.setAntiAlias(true);
-        tilePaint.setColor(0xff1faeff);
+        tilePaint.setColor(0xffA9A9A9);//Ox 16进制，ff 表示不透明, 后面六位是颜色 Blue Green Red
 
         minePaint =new Paint();
         minePaint.setAntiAlias(true);
@@ -183,7 +184,7 @@ public class Mine {
                     for (int k=0;k<8;k++)
                     {
                         int offsetX=j+dir[k][0],offsetY=i+dir[k][1];
-                        if(offsetX>=0&&offsetX< mapCol &&offsetY>=0&&offsetY< mapRow ) {
+                        if(offsetX >= 0 && offsetX < mapCol && offsetY >= 0 && offsetY < mapRow ) {
                             if (tile[offsetY][offsetX].value != -1)
                                 tile[offsetY][offsetX].value += 1;
                         }
@@ -226,13 +227,13 @@ public class Mine {
         {
             int offsetX=op.x+dir[i][0],offsetY=op.y+dir[i][1];
             //判断越界和是否已访问
-            boolean isCan=offsetX>=0&&offsetX< mapCol &&offsetY>=0&&offsetY< mapRow;
+            boolean isCan = offsetX >= 0 && offsetX < mapCol &&offsetY >= 0 &&offsetY < mapRow;
             if(isCan)
             {
                 if(tile[offsetY][offsetX].value==0 &&!tile[offsetY][offsetX].open) {
                     qu.offer(new Point(offsetX, offsetY));
                 }
-                else if(tile[offsetY][offsetX].value>0)
+                else if(tile[offsetY][offsetX].value > 0)
                 {
                     tile[offsetY][offsetX].open=true;
                 }
@@ -248,10 +249,10 @@ public class Mine {
             {
                 int offsetX=p.x+dir[i][0],offsetY=p.y+dir[i][1];
                 //判断越界和是否已访问
-                boolean isCan=offsetX>=0&&offsetX< mapCol &&offsetY>=0&&offsetY< mapRow;
+                boolean isCan=offsetX>=0 && offsetX< mapCol && offsetY>=0 && offsetY< mapRow;
                 if(isCan)
                 {
-                    if( tile[offsetY][offsetX].value==0&&!tile[offsetY][offsetX].open) {
+                    if( tile[offsetY][offsetX].value==0 && !tile[offsetY][offsetX].open) {
                         qu.offer(new Point(offsetX, offsetY));
                     }
                     else if(tile[offsetY][offsetX].value>0)

@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 
 /**
  * Created by zyw on 2016/7/29.
+ * Edited by David on 2018/2/9.
  */
 public class MainActivity extends Activity {
     public  static  int W;
@@ -19,14 +20,13 @@ public class MainActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         W = dm.widthPixels;//屏幕宽度
         H = dm.heightPixels ;//屏幕高度
-
         setContentView(new MainView(this));
-        new AlertDialog.Builder(this)
-                .setCancelable(false)
-                .setTitle("游戏规则")
-                .setMessage("把你认为不是雷的位置全部点开，只留着有雷的位置，每局游戏有10个雷。\n\n--落叶")
-                .setPositiveButton("我知道了",null)
-                .create()
-                .show();
+//        new AlertDialog.Builder(this)
+//                .setCancelable(false)
+//                .setTitle("游戏规则")
+//                .setMessage("把你认为不是雷的位置全部点开，只留着有雷的位置，每局游戏有10个雷。\n\n--落叶")
+//                .setPositiveButton("我知道了",null)
+//                .create()
+//                .show();
     }
 }

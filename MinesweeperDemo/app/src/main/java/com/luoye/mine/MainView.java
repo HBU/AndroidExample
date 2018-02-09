@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by zyw on 2017/6/7.
+ * Created by zyw on 2017/6/7.* Edited by David on 2018/2/9.
  */
 public class MainView extends View {
     private   Mine mine;
@@ -23,7 +23,6 @@ public class MainView extends View {
     {
         super(context);
         this.context=context;
-
         TILE_WIDTH=MainActivity.W/10;
         mine=new Mine((MainActivity.W-COL*TILE_WIDTH)/2,(MainActivity.H-ROW*TILE_WIDTH)/2,COL,ROW,mineNum,TILE_WIDTH);
         try {
@@ -39,7 +38,6 @@ public class MainView extends View {
     public void logic()
     {
         int count=0;
-
         for (int i=0;i<mine.mapRow;i++)
         {
             for (int j=0;j<mine.mapCol;j++)
@@ -54,12 +52,11 @@ public class MainView extends View {
         if(count==mineNum)
         {
             new AlertDialog.Builder(context)
-                    .setMessage("恭喜你，你找出了所有雷")
+                    .setMessage("祝贺！")
                     .setCancelable(false)
                     .setPositiveButton("继续", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
                             mine.init();
                             invalidate();
                             isFirst=true;
@@ -110,7 +107,7 @@ public class MainView extends View {
                     mine.isDrawAllMine=true;
                     new AlertDialog.Builder(context)
                             .setCancelable(false)
-                            .setMessage("很遗憾，你踩到雷了！")
+                            .setMessage("失败！")
                             .setPositiveButton("继续", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
