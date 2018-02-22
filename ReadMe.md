@@ -8,3 +8,4 @@ AnimationTest，AnimationXmlTest | 属性动画 | [Gavin-ZYX](https://github.com
 FirstActivity，GtyTest | 测试新建空Activity |
 NdkTest | 简单测试NDK使用 |
 MinesweeperDemo | 简单扫雷游戏 | [luoyesiqiu](https://github.com/luoyesiqiu/Mine)
+MPAndroidChartBarChart | 柱状图 | [BanShouWeng](https://github.com/BanShouWeng/MPAndroidChart)
