@@ -1,4 +1,5 @@
 # MPAndroidChartBarChart
+## author：https://github.com/hfrommane/MPAndroidChartBarChart
 
 效果图：
 
